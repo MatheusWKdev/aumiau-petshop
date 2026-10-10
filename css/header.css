@@ -1,0 +1,120 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  min-height: var(--header-height);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  background: rgba(255, 248, 240, 0.78);
+  backdrop-filter: blur(18px);
+}
+
+.nav {
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-title);
+  font-size: 1.72rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.brand-mark {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 50% 44% 52% 48%;
+  background: var(--color-turquoise);
+  box-shadow: 0 10px 25px rgba(34, 199, 201, 0.28);
+}
+
+.brand-mark svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--color-white);
+}
+
+.brand-text {
+  color: var(--color-graphite);
+}
+
+.brand-text::first-letter {
+  color: var(--color-orange);
+}
+
+.nav-panel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-panel > a:not(.btn) {
+  position: relative;
+  padding: 10px 13px;
+  color: rgba(47, 47, 47, 0.78);
+  font-weight: 800;
+  font-size: 0.94rem;
+}
+
+.nav-panel > a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  right: 13px;
+  bottom: 6px;
+  left: 13px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--color-turquoise);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms var(--ease);
+}
+
+.nav-panel > a:hover::after,
+.nav-panel > a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.nav-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+  background: var(--color-white);
+  color: var(--color-graphite);
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 21px;
+  height: 2px;
+  margin: 3px auto;
+  border-radius: 999px;
+  background: currentColor;
+  transition:
+    transform 220ms var(--ease),
+    opacity 220ms var(--ease);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
